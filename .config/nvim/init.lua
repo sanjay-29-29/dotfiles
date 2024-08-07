@@ -1,1 +1,2 @@
-require('config')
+require('sanjay.core')
+require('sanjay.lazy')
