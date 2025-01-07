@@ -15,8 +15,8 @@ keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close splits" })
 --Tab Management
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open a new tab" })
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })
-keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
-keymap.set("n", "<leader>tp", "<cmd>tabnnew<CR>", { desc = "Go to previous tab" })
+keymap.set("n", "<leader>tl", "<cmd>tabnext<CR>", { desc = "Go to next tab" })
+keymap.set("n", "<leader>th", "<cmd>tabprevious<CR>", { desc = "Go to previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabnnew %<CR>", { desc = "Open current buffer in a new tab" })
 
 --File Explorer
@@ -25,6 +25,7 @@ keymap.set("n", "<leader>ef", "<cmd>NvimTreeCollapse<CR>", { desc = "Colapse fil
 keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer"})
 
 --flutter
+keymap.set("n", "<leader>lt", "<cmd>:FlutterLogToggle<CR>")
 keymap.set("n", "<leader>lr", "<cmd>:FlutterRestart<CR>")
 keymap.set("n","<leader>ls", "<cmd>:FlutterRun<CR>")
 

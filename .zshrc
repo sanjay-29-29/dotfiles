@@ -138,7 +138,12 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export CHROME_EXECUTABLE="/usr/bin/chromium"
-export PATH="/home/pc/development/flutter/bin:$PATH"
 export PATH="/home/pc/Android/Sdk/emulator:$PATH"
 
 eval "$(zoxide init zsh --cmd cd)"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/pc/.dart-cli-completion/zsh-config.zsh ]] && . /home/pc/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+

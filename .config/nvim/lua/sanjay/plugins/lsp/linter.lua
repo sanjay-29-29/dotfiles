@@ -1,6 +1,23 @@
 return {
 	"mfussenegger/nvim-lint",
 	event = { "BufReadPre", "BufNewFile" },
+	opts = {
+		-- other config
+		linters = {
+			eslint_d = {
+				args = {
+					"--no-warn-ignored", -- <-- this is the key argument
+					"--format",
+					"json",
+					"--stdin",
+					"--stdin-filename",
+					function()
+						return vim.api.nvim_buf_get_name(0)
+					end,
+				},
+			},
+		},
+	},
 	config = function()
 		local lint = require("lint")
 
@@ -22,7 +39,7 @@ return {
 			end,
 		})
 
-		vim.keymap.set("n", "<leader>tl", function()
+		vim.keymap.set("n", "<leader>el", function()
 			lint.try_lint()
 		end, { desc = "Trigger linting for current file" })
 	end,
