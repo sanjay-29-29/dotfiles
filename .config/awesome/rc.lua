@@ -14,6 +14,8 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+-- Lain
+local lain = require("lain")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -155,6 +157,25 @@ end
 local cpuwidgettimer = gears.timer({ timeout = 2 })
 cpuwidgettimer:connect_signal("timeout", update_cpu)
 cpuwidgettimer:start()
+
+local net_widget = lain.widget.net({
+	iface = "eno1",
+	settings = function()
+		widget:set_text(" ↓ " .. net_now.received .. " ↑ " .. net_now.sent .. " |")
+	end,
+})
+
+local cpu_widget = lain.widget.cpu({
+	settings = function()
+		widget:set_text("| CPU " .. cpu_now.usage .. "% ")
+	end,
+})
+
+local memory_widget = lain.widget.mem({
+	settings = function()
+		widget:set_text("| RAM " .. mem_now.used .. "MB |")
+	end,
+})
 
 mymainmenu = awful.menu({
 	items = {
